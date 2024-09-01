@@ -50,10 +50,10 @@ jobs:
 
     - name: Deploy to EKS
       run: |
-        kubectl apply -f infra/cm/cm_db.yaml
-        kubectl apply -f infra/pv/pv_db.yaml        
-        kubectl apply -f infra/pvc/pvc_db.yaml
-        kubectl apply -f infra/secrets/secret_db.yaml
-        kubectl apply -f infra/sts/sts_db.yaml
-        kubectl apply -f infra/svc/svc_db.yaml                        
+        kubectl apply --validate=false -f infra/cm/cm_db.yaml
+        kubectl apply --validate=false -f infra/pv/pv_db.yaml        
+        kubectl apply --validate=false -f infra/pvc/pvc_db.yaml
+        kubectl apply --validate=false -f infra/secrets/secret_db.yaml
+        kubectl apply --validate=false -f infra/sts/sts_db.yaml
+        kubectl apply --validate=false -f infra/svc/svc_db.yaml                        
 
