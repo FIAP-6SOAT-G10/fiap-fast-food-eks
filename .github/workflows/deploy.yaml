@@ -48,7 +48,6 @@ jobs:
 
     - name: Deploy to EKS
       run: |
-        kubectl get nodes -v=10
         kubectl apply --validate=false -f infra/cm/cm_db.yaml
         kubectl apply -f infra/pv/pv_db.yaml        
         kubectl apply -f infra/pvc/pvc_db.yaml
