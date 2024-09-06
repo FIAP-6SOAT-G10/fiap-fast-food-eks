@@ -7,6 +7,9 @@ on:
       - infra/cm/**
     branches:
       - '**'
+  pull_request: 
+    branches: 
+      - main
 
 env:
   EKS_CLUSTER_NAME: rds-tech-challenge 
