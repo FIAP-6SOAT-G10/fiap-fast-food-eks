@@ -13,7 +13,7 @@ on:
 
 env:
   EKS_CLUSTER_NAME: rds-tech-challenge 
-  AWS_REGION: us-east-2
+  AWS_REGION: us-east-1
 
 jobs:
   
