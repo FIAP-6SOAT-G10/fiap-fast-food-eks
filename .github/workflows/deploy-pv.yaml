@@ -1,0 +1,58 @@
+name: Deploy Persistent Volume to EKS
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - infra/cm/**
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - main
+
+env:
+  EKS_CLUSTER_NAME: rds-tech-challenge
+  AWS_REGION: us-east-1
+
+jobs:
+
+  build:
+
+    name: Deployment
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Set short git commit SHA
+        id: commit
+        uses: prompt/actions-commit-hash@v2
+
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Install kubectl
+        uses: azure/setup-kubectl@v2.0
+        with:
+          version: 'v1.30.2' # default is latest stable
+        id: install
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{env.AWS_REGION}}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Update kube config
+        run: aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
+
+      - name: Deploy to EKS
+        run: |
+          kubectl apply --validate=false -f infra/pv/pv_db.yaml
+
