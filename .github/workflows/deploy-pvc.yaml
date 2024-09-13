@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - infra/cm/**
+      - infra/pvc/**
     branches:
       - '**'
   pull_request:
