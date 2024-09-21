@@ -6,10 +6,7 @@ on:
     paths:
       - infra/pv/**
     branches:
-      - '**'
-  pull_request:
-    branches:
-      - main
+      - 'main'
 
 env:
   EKS_CLUSTER_NAME: rds-tech-challenge
