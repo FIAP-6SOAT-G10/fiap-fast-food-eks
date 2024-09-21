@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: cm-api
 data:
-  DB_HOST: svc-postgres
+  DB_HOST: svc-postgres #Aqui temos que trocar para o endereço do RDS
   DB_NAME: postgres
