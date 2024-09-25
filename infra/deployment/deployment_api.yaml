@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: fiapfastfoodapp
-          image: 968379224811.dkr.ecr.us-east-1.amazonaws.com/fiap_fast_food_app:latest
+          image: 968379224811.dkr.ecr.us-east-1.amazonaws.com/fiap_fast_food_app:1.0
           imagePullPolicy: IfNotPresent
           env:
             - name: DB_USERNAME
