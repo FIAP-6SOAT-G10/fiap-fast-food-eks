@@ -3,8 +3,9 @@ kind: Service
 metadata:
   name: svc-postgres
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: sts-postgres
   ports:
     - port: 5432
+      nodePort: 30756
