@@ -7,6 +7,8 @@ on:
       - infra/hpa/**
     branches:
       - 'main'
+  repository_dispatch:
+    types: [trigger-hpa]
 
 env:
   EKS_CLUSTER_NAME: rds-tech-challenge

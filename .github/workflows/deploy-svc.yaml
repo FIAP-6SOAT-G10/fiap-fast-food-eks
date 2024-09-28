@@ -7,6 +7,8 @@ on:
       - infra/svc/**
     branches:
       - 'main'
+  repository_dispatch:
+    types: [trigger-services]
 
 env:
   EKS_CLUSTER_NAME: rds-tech-challenge
