@@ -7,8 +7,6 @@ on:
       - infra/deployment/**
     branches:
       - 'main'
-  repository_dispatch:
-    types: [trigger-deployments]
 
 env:
   EKS_CLUSTER_NAME: fiap_fast_food_eks

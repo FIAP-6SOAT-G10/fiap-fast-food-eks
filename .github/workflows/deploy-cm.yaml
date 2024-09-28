@@ -7,8 +7,6 @@ on:
       - infra/cm/**
     branches:
       - 'main'
-  repository_dispatch:
-    types: [trigger-configmaps]
 
 env:
   EKS_CLUSTER_NAME: rds-tech-challenge 
