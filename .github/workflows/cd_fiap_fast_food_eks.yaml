@@ -3,8 +3,6 @@ name: Deploy ConfigMap to ECR
 on:
   workflow_dispatch: 
   push:
-    paths:
-      - infra/cm/**
     branches:
       - 'main'
 
@@ -53,4 +51,10 @@ jobs:
       run: |
         kubectl apply --validate=false -f infra/cm/cm_api.yaml
         kubectl apply --validate=false -f infra/cm/cm_db.yaml
+        kubectl apply --validate=false -f infra/secrets/secret_api.yml
+        kubectl apply --validate=false -f infra/secrets/secret_db.yaml
+        kubectl apply --validate=false -f infra/deployment/deployment_api.yaml
+        kubectl apply --validate=false -f infra/hpa/hpa_api.yaml
+        kubectl apply --validate=false -f infra/svc/svc_api.yaml
+        kubectl apply --validate=false -f infra/svc/svc_db.yaml
 
