@@ -7,7 +7,7 @@ on:
       - 'main'
 
 env:
-  EKS_CLUSTER_NAME: rds-tech-challenge 
+  EKS_CLUSTER_NAME: fiap_fast_food_eks
   AWS_REGION: us-east-1
 
 jobs:

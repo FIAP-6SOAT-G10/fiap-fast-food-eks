@@ -3,9 +3,10 @@ kind: Service
 metadata:
   name: svc-api
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: fiapfastfoodapp
   ports:
-    - port: 8080
+    - port: 80
+      targetPort: 8080
       nodePort: 30000

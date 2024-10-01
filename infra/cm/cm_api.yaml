@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: cm-api
 data:
-  DB_HOST: tech-challenge-fiap-fase3-rds.chbnxin0lm4l.us-east-1.rds.amazonaws.com
+  DB_HOST: db-fiap-fast-food.cmsb44wh3htf.us-east-1.rds.amazonaws.com
   DB_NAME: postgres
